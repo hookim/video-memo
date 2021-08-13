@@ -12,31 +12,38 @@ const getMemos = () => {
     else return storedMemos
 }
 
-const renderMemo = (memo) => {
+const renderMemo = (memos) => {
     const display = document.querySelector('#display')
-    const list = document.createElement('div')
-    const link = document.createElement('a')
-    const button = document.createElement('button')
     
-    link.textContent = memo.title                        
-    link.setAttribute('href', `/memo.html#${memo.hash}`) 
-    button.textContent = 'x'
+    display.innerHTML = ''                                // Clear the outdated rendered lists
 
-    list.appendChild(link)
-    list.appendChild(button)
-    display.appendChild(list)
+    memos.forEach((memo) => {
+        const list = document.createElement('div')
+        const link = document.createElement('a')
+        const button = document.createElement('button')
 
-    button.addEventListener('click', () => {            // Button for delete
-        const memos = getMemos()
-        const idx = memos.findIndex((mm) => {
-            return mm.hash === memo.hash
-        })
-        display.removeChild(list)
-        memos.splice(idx,1)
-        localStorage.setItem('memos', JSON.stringify(memos))
-        display.textContent = ''                        // Clear the outdated rendered lists
-        memos.forEach((memo) => {
-            renderMemo(memo)
+        link.textContent = memo.title                        
+        link.setAttribute('href', `/memo.html#${memo.hash}`) 
+        button.textContent = 'x'
+    
+        list.appendChild(link)
+        list.appendChild(button)
+        display.appendChild(list)
+
+        button.addEventListener('click', () => {            // Button for delete
+            const memos = getMemos()
+            const idx = memos.findIndex((mm) => {
+                return mm.hash === memo.hash
+            })
+            display.removeChild(list)
+            memos.splice(idx,1)
+            localStorage.setItem('memos', JSON.stringify(memos))
+            
+            renderMemo(memos)
         })
     })
+    
+   
+
+   
 }
