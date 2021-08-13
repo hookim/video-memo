@@ -1,8 +1,9 @@
 class memo {
-    constructor(hash , title = "Untitled", body = " "){
+    constructor(hash , title = "Untitled", body = {}, link =""){
         this.title  = title
         this.body = body
         this.hash = hash
+        this.link = link
     }
 }
 
@@ -42,8 +43,14 @@ const renderMemo = (memos) => {
             renderMemo(memos)
         })
     })
-    
-   
 
-   
+}
+
+const renderVideo = (memo) => {
+    if(memo.link === "");
+    else{
+        document.querySelector('#link').value = memo.link
+        document.querySelector('#video-player').setAttribute('src' , memo.link)
+    }
+
 }
