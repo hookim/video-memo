@@ -1,5 +1,5 @@
 class memo {
-    constructor(hash, title = "Untitled", body = {}, link = "", videoId = "") {
+    constructor(hash, title = "Untitled", body = [], link = "", videoId = "") {
         this.title = title
         this.body = body
         this.hash = hash
@@ -12,6 +12,11 @@ const getMemos = () => {
     const storedMemos = JSON.parse(localStorage.getItem('memos'))
     if (storedMemos === null) return []
     else return storedMemos
+}
+
+const setMemos = (memos) => {
+    const memosJSON = JSON.stringify(memos)
+    localStorage.setItem('memos', memosJSON)
 }
 
 const renderMemo = (memos) => {
@@ -44,14 +49,52 @@ const renderMemo = (memos) => {
             renderMemo(memos)
         })
     })
+}
+const secondToTime = (second) => {
+    let timeString
+    const min = Math.floor(second / 60)
+    const sec = second % 60
+
+    timeString = `${min}:`
+    timeString += sec < 10 ? `0${sec}` : `${sec}`
+
+    return timeString
+}
+
+const renderClipMemo = (memos, memo, curMemoBody, player) => {
+    const clipMemo = document.querySelector('#clip-memo')
+
+    const clipMemoContainer = document.createElement('div')
+    const timestamp = document.createElement('button')
+    const inputMemo = document.createElement('input')
+    const deleteButton = document.createElement('button')
+
+    timestamp.textContent = secondToTime(curMemoBody[0])
+    inputMemo.value = curMemoBody[1]
+    inputMemo.size = 70
+    deleteButton.textContent = 'X'
+
+    clipMemoContainer.appendChild(timestamp)
+    clipMemoContainer.appendChild(inputMemo)
+    clipMemoContainer.appendChild(deleteButton)
+
+    clipMemo.appendChild(clipMemoContainer)
+
+    timestamp.addEventListener('click', () => {
+        player.loadVideoById(memo.videoId, curMemoBody[0], "large")
+    })
+
+    inputMemo.addEventListener('change', (e) => {
+        curMemoBody[1] = e.target.value
+        setMemos(memos)
+    })
 
 }
 
-const renderVideo = (memo) => {
-    if (memo.link === "");
-    else {
-        document.querySelector('#link').value = memo.link
-        document.querySelector('#video-player').setAttribute('src', memo.link)
+const renderClipMemos = (memos, memo, player) => {
+    document.querySelector('#clip-memo').innerHTML = ''
+    for (let i = 0; i < memo.body.length; i++) {
+        renderClipMemo(memos, memo, memo.body[i], player)
     }
-
 }
+

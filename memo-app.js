@@ -17,6 +17,9 @@ function onYouTubeIframeAPIReady() {
             'playsinline': 1
         }
     });
+
+    renderClipMemos(memos, currentMemo, player)
+
 }
 
 // About Title and Link display
@@ -56,6 +59,8 @@ document.querySelector('#get-link').addEventListener('click', () => {
         currentMemo.link = newLink
         currentMemo.videoId = videoId
         localStorage.setItem('memos', JSON.stringify(memos))
+
+        location.reload()
     }
 
 
@@ -68,3 +73,11 @@ document.querySelector('#back').addEventListener('click', () => {
 })
 
 
+document.querySelector('#create-memo').addEventListener('click', () => {
+    const time = Math.round(player.getCurrentTime())
+    const newBody = [time, ""]
+    currentMemo.body.push(newBody)
+    setMemos(memos)
+
+    renderClipMemo(memos, currentMemo, newBody, player)
+})
