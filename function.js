@@ -1,9 +1,10 @@
 class memo {
-    constructor(hash , title = "Untitled", body = {}, link =""){
-        this.title  = title
+    constructor(hash, title = "Untitled", body = {}, link = "", videoId = "") {
+        this.title = title
         this.body = body
         this.hash = hash
         this.link = link
+        this.videoId = videoId
     }
 }
 
@@ -15,7 +16,7 @@ const getMemos = () => {
 
 const renderMemo = (memos) => {
     const display = document.querySelector('#display')
-    
+
     display.innerHTML = ''                                // Clear the outdated rendered lists
 
     memos.forEach((memo) => {
@@ -23,10 +24,10 @@ const renderMemo = (memos) => {
         const link = document.createElement('a')
         const button = document.createElement('button')
 
-        link.textContent = memo.title                        
-        link.setAttribute('href', `/memo.html#${memo.hash}`) 
+        link.textContent = memo.title
+        link.setAttribute('href', `/memo.html#${memo.hash}`)
         button.textContent = 'x'
-    
+
         list.appendChild(link)
         list.appendChild(button)
         display.appendChild(list)
@@ -37,9 +38,9 @@ const renderMemo = (memos) => {
                 return mm.hash === memo.hash
             })
             display.removeChild(list)
-            memos.splice(idx,1)
+            memos.splice(idx, 1)
             localStorage.setItem('memos', JSON.stringify(memos))
-            
+
             renderMemo(memos)
         })
     })
@@ -47,10 +48,10 @@ const renderMemo = (memos) => {
 }
 
 const renderVideo = (memo) => {
-    if(memo.link === "");
-    else{
+    if (memo.link === "");
+    else {
         document.querySelector('#link').value = memo.link
-        document.querySelector('#video-player').setAttribute('src' , memo.link)
+        document.querySelector('#video-player').setAttribute('src', memo.link)
     }
 
 }
