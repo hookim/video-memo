@@ -89,6 +89,19 @@ const renderClipMemo = (memos, memo, curMemoBody, player) => {
         setMemos(memos)
     })
 
+    deleteButton.addEventListener('click', () => {
+        const idx = memo.body.findIndex((memoBody) => {
+            return memoBody[2] === curMemoBody[2]
+        })
+        memo.body.splice(idx, 1)
+        setMemos(memos)
+        document.querySelector('#clip-memo').innerHTML = ''
+        for (let i = 0; i < memo.body.length; i++) {
+            renderClipMemo(memos, memo, memo.body[i], player)
+        }
+
+    })
+
 }
 
 const renderClipMemos = (memos, memo, player) => {

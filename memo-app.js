@@ -74,8 +74,9 @@ document.querySelector('#back').addEventListener('click', () => {
 
 
 document.querySelector('#create-memo').addEventListener('click', () => {
+    const memoHash = uuidv4()
     const time = Math.round(player.getCurrentTime())
-    const newBody = [time, ""]
+    const newBody = [time, "", memoHash]
     currentMemo.body.push(newBody)
     setMemos(memos)
 
