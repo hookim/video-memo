@@ -1,8 +1,10 @@
-const memos = getMemos()
+let memos = getMemos()
 
 renderMemo(memos)
 
 document.querySelector('#create').addEventListener('click', () => {
+
+    memos = getMemos()
 
     const newMemo = new memo(uuidv4())                      // create new memo object for local storage
 

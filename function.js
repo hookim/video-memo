@@ -29,6 +29,7 @@ const renderMemo = (memos) => {
         const link = document.createElement('a')
         const button = document.createElement('button')
 
+        list.className = 'memos'
         link.textContent = memo.title
         link.setAttribute('href', `/memo.html#${memo.hash}`)
         button.textContent = 'x'
