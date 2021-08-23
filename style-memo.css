@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0; 
+    text-align: center;
+    
+}
+body{
+    background-color: rgb(126, 126, 158);
+}
+#title-display{
+    text-align: center;
+    padding: 20px;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    background-color: rgb(34, 34, 75);
+    margin-bottom: 10px;
+}
+
+#title-input{
+    border: 4px rgb(87, 87, 197) solid;
+    background-color:rgb(67, 67, 161);
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    font-size: 25px;
+    
+}
+
+#title-update{
+    margin-left: 10px;
+    font-size: 20px;
+    background-color: rgb(82, 82, 133);
+    border: none;
+    padding: 15px;
+    color: white;
+    border-radius: 10px;
+}
+#title-update:hover{
+    font-size: 22px;
+    background-color: rgb(142, 142, 192);
+}
+#title-update:active{
+    font-size: 20px;
+    background-color: rgb(69, 69, 124);
+}
+
+.link-button{
+    
+    font-size: 15px;
+    background-color: rgb(82, 82, 133);
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+}
+.link-button:hover{
+    background-color: rgb(142, 142, 192);
+}
+.link-button:active{
+    background-color: rgb(69, 69, 124);
+}
+
+#link{
+    border: 4px rgb(87, 87, 197) solid;
+    background-color:rgb(67, 67, 161);
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    padding: 3px;
+    font-size: 15px;
+    
+}
+
+#clip{
+    padding: 10px;
+    display: block;
+    margin:auto;
+}
+
+.memo-container{
+    padding: 3px;
+    margin: 2px;
+}
+.memo-container input{
+    border: 4px rgb(87, 87, 197) solid;
+    background-color:rgb(67, 67, 161);
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    padding: 3px;
+    font-size: 15px;
+    text-align: left;
+}
+.memo-container input:focus{
+    background-color: rgb(31, 31, 88);
+}
+
+.memo-container button{
+    font-size: 17px;
+    background-color: rgb(82, 82, 133);
+    border: none;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.memo-container button:hover{
+    background-color:rgb(43, 43, 155);
+}
+
+.memo-container button:active{
+    background-color:rgb(64, 64, 146);
+}

@@ -29,10 +29,12 @@ const renderMemo = (memos) => {
         const link = document.createElement('a')
         const button = document.createElement('button')
 
-        list.className = 'memos'
         link.textContent = memo.title
         link.setAttribute('href', `/memo.html#${memo.hash}`)
         button.textContent = 'x'
+        list.className = 'memos'
+        button.className = 'buttons'
+        link.className = 'links'
 
         list.appendChild(link)
         list.appendChild(button)
@@ -70,6 +72,7 @@ const renderClipMemo = (memos, memo, curMemoBody, player) => {
     const inputMemo = document.createElement('input')
     const deleteButton = document.createElement('button')
 
+    clipMemoContainer.className = "memo-container"
     timestamp.textContent = secondToTime(curMemoBody[0])
     inputMemo.value = curMemoBody[1]
     inputMemo.size = 70

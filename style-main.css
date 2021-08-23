@@ -7,7 +7,7 @@
 }
 
 body{
-    background-color: rgb(37, 37, 71);
+    background-color: rgb(45, 50, 122);
     
 }
 h1{
@@ -28,12 +28,13 @@ h1{
     border: none;
     font-size:30px;
     padding:5px;
-    background-color: rgb(91, 91, 223);
+    background-color: rgb(63, 63, 175);
     border-radius: 8px;
 }
 .buttons:hover{
-    background-color: rgb(139, 139, 204);
+    background-color: rgb(155, 155, 195);
 }
+
 
 .links{
     font-weight: bold;
@@ -41,18 +42,18 @@ h1{
 }
 
 .links:hover{
-    color: rgb(109, 109, 240); 
-    font-size: 50px;
+    color: rgb(135, 135, 231); 
+    font-size: 42px;
     text-decoration: none;
 }
 
 #background-image{
-    background-image: url(a27a3173265c9d07ea21771da05cfbca.jpg);
+    background-image: url(back2.jpg);
     background-repeat: no-repeat;
     height: 300px;
     width:100%;
     background-position: center;
-    background-size: 100%;
+    background-size: 95%;
 }
 
 #create{
@@ -63,10 +64,14 @@ h1{
     padding: 10px;
     font-size: 30px;
     border-radius: 12px;
-
-
 }
+
 #create:hover{
+    font-size: 32px;
     background-color: rgb(119, 135, 224);
 }
 
+#create:active{
+    font-size: 30px;
+    background-color: rgb(52, 52, 119);
+}
